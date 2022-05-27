@@ -1,17 +1,17 @@
-package Testcases;
+package testcases;
 
 import java.time.Duration;
 
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
+import macros.SignInMacro;
 import objectrepository.HomePage;
 
 public class SignInTest2 {
-
-	@Test
-	public void SignIn() {
+	
+	@Test public void SignIn2() {
 		//Invoking Browser
 		
 		// chromedriver.exe -> Chrome browser
@@ -26,11 +26,18 @@ public class SignInTest2 {
 		
 		
 		HomePage homepage = new HomePage(driver);
+
+		SignInMacro signIn = new SignInMacro(driver);
+//		
+//		signIn.signInTestTest();
+		
 		homepage.SignInAvatar().click();
 		homepage.EmailID().clear();
 		homepage.EmailID().sendKeys("test@liferay.com");
 		homepage.Password().sendKeys("test");
 		homepage.SignInSubmitButton().click();
+		
+		
 		homepage.EditPageIcon().click();
 		homepage.SideBarFragmentsAndWdigets().isDisplayed();
 
